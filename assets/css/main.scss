@@ -1,0 +1,218 @@
+@import "sass-mixins-g", "resources";
+@import "base", "typo";
+
+
+body {
+	position: relative;
+	
+	background-position: 50% 100%;
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	width: 100%;
+	
+	background: #b6b6b6 url(../img/noise_gradient.png) repeat-x 0 50%;
+	
+	@include box-shadow("
+		0 1px 0 rgba(0,0,0,0.5),
+		0 1px 0 rgba(255,255,255,0.5) inset
+	");
+
+	ul {
+		display: inline-block;
+	
+		height: 26px;
+		
+		padding: 0;
+		margin: 5px 8px 4px;
+		border: 1px solid rgba(0,0,0,0.3);
+		
+		background: url(../img/noise_gradient.png) repeat-x 0 50%;
+		
+		@include border-radius(3px);
+		@include box-shadow(0px 1px 0px rgba(255,255,255,0.5));
+	}
+	
+	li {
+		position: relative;
+		display: inline-block;
+		
+		padding: 3px 8px;
+		
+		@include box-shadow("
+			0px 1px 0px rgba(255,255,255,0.5) inset
+		");
+		
+		border-right: 1px solid rgba(0,0,0,0.3);
+		border-left: 1px solid rgba(255,255,255,0.5);
+	
+		width: 114px;
+		text-align: center;
+	
+		&:hover {
+			background: rgba(255,255,255,0.4);	
+		}
+		
+		&.active {
+			background: rgba(44,44,44,0.4) url(../img/shadow.png) repeat-x 0 50%;
+			margin: -1px 0 -1px -1px;
+			padding-left: 9px;
+			
+			border: 1px solid rgba(0,0,0,0.5);
+			
+			@include box-shadow("none");
+		}
+		
+		a {
+			white-space: nowrap;
+			overflow-x: hidden;
+			text-overflow: ellipsis;
+			
+			display: block;
+			margin: 0;
+		}
+	}
+	
+		li:first-child {
+			@include border-radius(3px 0 0 3px);
+			border-left: none;
+			
+			
+			&.active {
+			}
+		}
+		
+		li:last-child {
+			@include border-radius(0 3px 3px 0);
+			border-right: none;
+			
+			&.active {
+				margin-right: -1px;
+			}
+		}
+
+	.info {
+		position: absolute;
+		top: 11px;
+		right: 8px;
+			
+		width: 18px;
+		height: 18px;
+	
+		a {
+			
+			
+			text-indent: -9999em;
+			overflow: hidden;
+			
+			display: block;
+		
+			width: 18px;
+			height: 18px;
+			
+			background: url(../img/i.png) no-repeat 0 0;
+			
+			&:hover {
+				background-position: 0 -20px;
+			}
+		}
+	}
+}
+
+
+// Tooltip Generic 
+
+.tooltip,
+.tooltip i {
+	position: absolute;
+	display: block;
+	
+	@include transition("opacity 0.5s ease-out");
+}
+
+	.has-tooltip:hover {
+		.tooltip {
+			opacity: 1;
+		}
+	}
+
+
+
+// 	Tooltip
+
+.tooltip {
+	content: attr(title);
+	
+	top: 34px;
+	
+	background: rgba(0,0,0,0.7);
+	color: #fff;
+	
+	
+	@include border-radius(3px);
+	
+	opacity: 0;
+	
+	@include transition("opacity 0.3s ease-out");
+	
+	
+	// Tooltip Arrow
+	
+	i {
+		top: -10px;
+		
+		height: 0;
+		width: 0;
+		overflow: hidden;
+		
+		content: "";
+		
+		border: 5px solid rgba(0,0,0,0);
+		border-bottom-color: rgba(0,0,0,0.7);
+	}
+}
+
+	li .tooltip {
+		left: -1px;
+		white-space: nowrap;
+	
+		padding: 4px 9px;
+		
+		i {
+			left: 20px;
+		}
+	}
+	
+	.info .tooltip {
+		top: 29px;
+		right: 0;
+		
+		min-width: 240px;
+	
+		padding: 8px 13px;
+		
+		i {
+			right: 5px;
+		}
+	}
+
+
+.notice {
+	position: absolute;
+	top: 38px;
+	left: 0;
+	
+	width: 100%;
+	padding: 5px 0;
+	
+	background: #f8f6cf url(../img/noise_gradient.png) repeat-x 0 50%;
+	
+	@include box-shadow("
+		0 1px 0 rgba(0,0,0,0.5),
+		0 1px 0 rgba(255,255,255,0.5) inset
+	");
+}

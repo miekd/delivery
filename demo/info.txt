@@ -1,0 +1,1 @@
+This is a piece of informative text. If people hover over the "i" on the top right, they will see it. If you omit this info.txt, the "i" will not be shown.
