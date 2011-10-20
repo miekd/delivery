@@ -1,6 +1,6 @@
 # Delivery
 
-Delivery is a micro web app that allows you to quickly show static previews of your web-design work to your clients in the browser, just by simply uploading a few files to your web server.
+Delivery is a micro web-app that allows you to quickly show static previews of your web-design work to your clients in the browser, just by simply uploading a few files to your web server.
 
 ## Why?
 

@@ -1,7 +1,7 @@
 <?php
 
 // 	Public root path.
-	define("R", "/delivery/");
+	define("R", str_replace("index.php", "", $_SERVER['PHP_SELF']));
 
 	include("core/init.php");
 
