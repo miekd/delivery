@@ -1,6 +1,6 @@
 <?
 
-// 	"Delivery" Initialization.
+//  Initialization.
 
 	//	Variables
 	$delivered = 		false;

@@ -11,7 +11,7 @@
 <head>
 	<meta charset="UTF-8" />
 	
-	<title>Codename "Delivery"</title>
+	<title>Delivery</title>
 	
 	<style>
 		@import "<?=R; ?>assets/css/main.css";
