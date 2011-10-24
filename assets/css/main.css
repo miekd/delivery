@@ -213,6 +213,16 @@ body {
   position: relative;
   background-position: 50% 100%; }
 
+html, body {
+  height: 100%;
+  overflow: hidden; }
+
+.wrapper {
+  overflow: auto;
+  position: relative;
+  height: 100%;
+  width: 100%; }
+
 nav {
   position: fixed;
   top: 0;

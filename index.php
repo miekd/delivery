@@ -1,6 +1,6 @@
 <?php
 
-// 	Public root path.
+	// 	Public root path.
 	define("R", str_replace("index.php", "", $_SERVER['PHP_SELF']));
 
 	include("core/init.php");
@@ -22,7 +22,6 @@
 <div class="wrapper">
 	
 	<nav>
-	
 		<ul>
 		<?
 			$count = 0;
@@ -79,10 +78,9 @@
 		$width = $imagesize[0];
 	?>
 	<style type="text/css">
-		body {
+		.preview {
 			background: url("<?=R.$current_preview['full']; ?>") no-repeat 50% 36px;
-			
-			height: <?=$height+40; ?>px;
+			height: <?=$height+36; ?>px;
 		}
 	</style>
 	<?
@@ -92,7 +90,8 @@
 	<?
 	}
 	?>
-
+	
+	<div class="preview"></div>
 </div>
 
 </body>
