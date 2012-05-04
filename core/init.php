@@ -30,32 +30,35 @@
 	}
 
 	//	Nothing was found, bye.
-	if(isset($p_files) && count($p_files) > 1)
+	if(isset($p_files) && count($p_files) > 0)
 		$delivered = true;
 
 	if(!$delivered)
 		die("No delivery today...");
 
 	//	Match arrays to find prefix.
-	for($i=0; $i<strlen($p_filenames[0]); $i++)
+	if(count($p_files) > 1)
 	{
-		$char_match = true;
-		$char_needed = $p_filenames[0]{$i};
-
-		// Here we match chars.
-
-		for($p=1; $p<(count($p_filenames)); $p++)
+		for($i=0; $i<strlen($p_filenames[0]); $i++)
 		{
-			if($p_filenames[$p]{$i} != $char_needed)
-				$char_match = false;
-		}
+			$char_match = true;
+			$char_needed = $p_filenames[0]{$i};
 
-		if(!$char_match){
-			$i = strlen($p_filenames[0]);
-			continue;
-		}
+			// Here we match chars.
 
-		$char_match_until = $i;
+			for($p=1; $p<(count($p_filenames)); $p++)
+			{
+				if($p_filenames[$p]{$i} != $char_needed)
+					$char_match = false;
+			}
+
+			if(!$char_match){
+				$i = strlen($p_filenames[0]);
+				continue;
+			}
+
+			$char_match_until = $i;
+		}
 	}
 
 	$prefix = substr($p_filenames[0], 0, $char_match_until);
