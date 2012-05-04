@@ -18,7 +18,7 @@
 
 	//	Find files and create file arrays.
 	$found_files = glob($cur_project . "*.{jpg,jpeg,png}", GLOB_BRACE);
-	sort($found_files);
+	natsort($found_files);
 
 	foreach ($found_files as $file) {
 		$pi = pathinfo($file);

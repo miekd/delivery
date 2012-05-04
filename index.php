@@ -1,5 +1,4 @@
 <?php
-
 	// 	Public root path.
 	define("R", str_replace("index.php", "", $_SERVER['PHP_SELF']));
 
@@ -10,37 +9,37 @@
 
 <head>
 	<meta charset="UTF-8" />
-	
+
 	<title>Delivery</title>
-	
+
 	<style>
 		@import "<?=R; ?>assets/css/main.css";
 	</style>
 </head>
 <body>
-	
+
 <div class="wrapper">
-	
+
 	<nav>
 		<ul>
 		<?
 			$count = 0;
-			
+
 			foreach ($p_files as $preview) {
 				$count++;
 				$has_tooltip = false;
 				$preview_class = '';
 				$label = str_replace($prefix, "", $preview['filename']);
-				
+
 				if(strlen($label) > 21)
 				{
 					$has_tooltip = true;
 					$preview_class .= "has-tooltip ";
 				}
-				
+
 				if($cur_preview == false)
 					$cur_preview = $preview['slug'];
-			
+
 				if($preview['slug'] == $cur_preview)
 				{
 					$current_preview = $preview;
@@ -50,19 +49,19 @@
 			}
 		?>
 		</ul>
-		
+
 		<?
 		$info_glob = glob($cur_project . "info.txt");
-		
+
 		if(count($info_glob) > 0)
 		{
 		?>
 			<div class="info has-tooltip">
 				<a href="#">More information ...</a>
-				
+
 				<div class="tooltip">
 					<?=htmlentities(file_get_contents($info_glob[0])); ?>
-					
+
 					<i></i>
 				</div>
 			</div>
@@ -90,7 +89,7 @@
 	<?
 	}
 	?>
-	
+
 	<div class="preview"></div>
 </div>
 
