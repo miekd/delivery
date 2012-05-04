@@ -14,49 +14,55 @@
 	{
 		$cur_project = $_GET["project"];
 		$cur_preview = isset($_GET["preview"]) ? $_GET["preview"] : false;
-	} 
-	
+	}
+
 	//	Find files and create file arrays.
-	foreach (glob($cur_project . "*.{jpg,png}", GLOB_BRACE) as $file) {
+	$found_files = glob($cur_project . "*.{jpg,jpeg,png}", GLOB_BRACE);
+	sort($found_files);
+
+	foreach ($found_files as $file) {
 		$pi = pathinfo($file);
-	
+
 		// Put pathinfo in files array.
 		$p_files[] = $pi;
 		$p_filenames[] = $pi["filename"];
 		$p_fullnames[] = $file;
 	}
-	
+
 	//	Nothing was found, bye.
-	if(isset($p_files) && count($p_files) > 1)
+	if(isset($p_files) && count($p_files) > 0)
 		$delivered = true;
-		
+
 	if(!$delivered)
 		die("No delivery today...");
-		
+
 	//	Match arrays to find prefix.
-	for($i=0; $i<strlen($p_filenames[0]); $i++)
+	if(count($p_files) > 1)
 	{
-		$char_match = true;
-		$char_needed = $p_filenames[0]{$i};
-	
-		// Here we match chars.
-		
-		for($p=1; $p<(count($p_filenames)); $p++)
+		for($i=0; $i<strlen($p_filenames[0]); $i++)
 		{
-			if($p_filenames[$p]{$i} != $char_needed)
-				$char_match = false;
+			$char_match = true;
+			$char_needed = $p_filenames[0]{$i};
+
+			// Here we match chars.
+
+			for($p=1; $p<(count($p_filenames)); $p++)
+			{
+				if($p_filenames[$p]{$i} != $char_needed)
+					$char_match = false;
+			}
+
+			if(!$char_match){
+				$i = strlen($p_filenames[0]);
+				continue;
+			}
+
+			$char_match_until = $i;
 		}
-		
-		if(!$char_match){
-			$i = strlen($p_filenames[0]);
-			continue;
-		}
-		
-		$char_match_until = $i;
 	}
-	
+
 	$prefix = substr($p_filenames[0], 0, $char_match_until);
-	
+
 	//	Create slugs.
 	for($i=0; $i<(count($p_filenames)); $i++)
 	{
