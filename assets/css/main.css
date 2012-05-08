@@ -312,7 +312,7 @@ nav {
         background-position: 0 -20px; }
 
 .tooltip,
-.tooltip i {
+.tooltip:after {
   position: absolute;
   display: block;
   -webkit-transition: opacity 0.5s ease-out;
@@ -335,7 +335,14 @@ nav {
   -webkit-transition: opacity 0.3s ease-out;
   -moz-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out; }
-  .tooltip i {
+  .tooltip:before {
+    position: absolute;
+    top: -8px;
+    left: 0px;
+    height: 8px;
+    width: 100%;
+    content: ""; }
+  .tooltip:after {
     top: -10px;
     height: 0;
     width: 0;
@@ -348,7 +355,7 @@ li .tooltip {
   left: -1px;
   white-space: nowrap;
   padding: 4px 9px; }
-  li .tooltip i {
+  li .tooltip:after {
     left: 20px; }
 
 .info .tooltip {
@@ -356,7 +363,7 @@ li .tooltip {
   right: 0;
   min-width: 240px;
   padding: 8px 13px; }
-  .info .tooltip i {
+  .info .tooltip:after {
     right: 5px; }
 
 .notice {

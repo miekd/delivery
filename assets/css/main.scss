@@ -119,8 +119,6 @@ nav {
 		height: 18px;
 	
 		a {
-			
-			
 			text-indent: -9999em;
 			overflow: hidden;
 			
@@ -142,10 +140,9 @@ nav {
 // Tooltip Generic 
 
 .tooltip,
-.tooltip i {
+.tooltip:after {
 	position: absolute;
 	display: block;
-	
 	@include transition("opacity 0.5s ease-out");
 }
 
@@ -174,10 +171,17 @@ nav {
 	
 	@include transition("opacity 0.3s ease-out");
 	
+	&:before{
+		position:absolute;
+		top: -8px;
+		left:0px;
+		height: 8px;
+		width: 100%;
+		content: "";
+	}
 	
 	// Tooltip Arrow
-	
-	i {
+	&:after {
 		top: -10px;
 		
 		height: 0;
@@ -191,29 +195,28 @@ nav {
 	}
 }
 
-	li .tooltip {
-		left: -1px;
-		white-space: nowrap;
+li .tooltip {
+	left: -1px;
+	white-space: nowrap;
+
+	padding: 4px 9px;
 	
-		padding: 4px 9px;
-		
-		i {
-			left: 20px;
-		}
+	&:after {
+		left: 20px;
 	}
+}
+
+.info .tooltip {
+	top: 29px;
+	right: 0;
 	
-	.info .tooltip {
-		top: 29px;
-		right: 0;
-		
-		min-width: 240px;
-	
-		padding: 8px 13px;
-		
-		i {
-			right: 5px;
-		}
+	min-width: 240px;
+
+	padding: 8px 13px;
+	&:after {
+		right: 5px;
 	}
+}
 
 
 .notice {
