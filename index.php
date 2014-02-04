@@ -1,17 +1,15 @@
 <?php
 	// 	Public root path.
 	define("R", str_replace("index.php", "", $_SERVER['PHP_SELF']));
-
 	include("core/init.php");
+?>
 
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="no-js">
 
 <head>
 	<meta charset="UTF-8" />
-
 	<title>Delivery</title>
-
 	<style>
 		@import "<?=R; ?>assets/css/main.css";
 	</style>
@@ -45,7 +43,7 @@
 					$current_preview = $preview;
 					$preview_class .= 'active ';
 				}
-				?><li class="<?=$preview_class; ?>"><a href="<?=R.$cur_project."_/".$preview['slug']; ?>"><?=$label ?></a><? if($has_tooltip) { ?> <b class="tooltip"><?=htmlentities($label); ?><i></i></b><? } ?></li><?
+				?><li class="<?=$preview_class; ?>"><a href="<?=R.$cur_project."_/".$preview['slug']; ?>"><?=$label ?></a><? if($has_tooltip) { ?> <b class="tooltip"><?=htmlentities($label); ?></b><? } ?></li><?
 			}
 		?>
 		</ul>
@@ -61,8 +59,6 @@
 
 				<div class="tooltip">
 					<?=htmlentities(file_get_contents($info_glob[0])); ?>
-
-					<i></i>
 				</div>
 			</div>
 		<? } ?>
